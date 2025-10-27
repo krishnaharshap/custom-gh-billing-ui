@@ -1,0 +1,74 @@
+# --- Python related ---
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging directories
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+
+# Virtual environments
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# Test / coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache/
+.nosetests.xml
+coverage.xml
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# --- Static site / build artifacts ---
+site/assets/js/charts.js   # if you decide to generate dynamically or build tool output
+site/assets/js/*.map       # map files if any
+site/assets/js/*.min.js    # if you minify later
+data/usage_history.json    # optionally ignore if you don’t want it in main branch
+
+# --- System / OS files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- IDE / Editor files ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- Shell / PowerShell / logs, scripts you don’t want to track ---
+*.log
+*.bak
+*.tmp
+setup-local.ps1
+setup-repo.ps1
+
+# --- GitHub Actions / Secrets (already in code, but ignore local overrides) ---
+.env.local
+.env.*.local
+
+# --- Documentation / misc ---
+*.orig
+repo-structure.md
+setup-instructions.md
+
+

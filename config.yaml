@@ -1,0 +1,11 @@
+username: "krishnaharshap"
+schedule: "0 3 * * 0"
+email: "krishnaharshap11@gmail.com"
+thresholds:
+  actions_minutes: 1000
+  packages_storage_gb: 5
+  shared_storage_gb: 5
+metrics:
+  - actions
+  - packages
+  - shared-storage
