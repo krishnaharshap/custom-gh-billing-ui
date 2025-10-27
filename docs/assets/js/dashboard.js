@@ -1,4 +1,4 @@
-// site/assets/js/dashboard.js
+// docs/assets/js/dashboard.js
 // Handles loading usage_history.json and rendering charts with Chart.js
 
 document.addEventListener("DOMContentLoaded", () => {
