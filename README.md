@@ -107,7 +107,7 @@ custom-gh-billing-ui/
 │ └── usage_history.json
 ├── src/
 │ └── fetch_usage.py
-├── site/ ← static assets for dashboard (or use docs/)
+├── docs/ ← static assets for dashboard (or use docs/)
 │ ├── index.html
 │ ├── assets/
 │ │ ├── chart.js (or CDN)
@@ -122,7 +122,7 @@ custom-gh-billing-ui/
 
 ---
 
-## 🪄 Windows PowerShell Script (for local VS Code setup)  
+## Windows PowerShell Script (for local VS Code setup)  
 You can save this as e.g., `setup-repo.ps1` and run in PowerShell.  
 ```powershell
 # setup-repo.ps1
@@ -149,7 +149,7 @@ Write-Host "Virtual environment created."
 # Create standard folders
 New-Item -ItemType Directory -Name "data"
 New-Item -ItemType Directory -Name "src"
-New-Item -ItemType Directory -Name "site\assets\css" ․OutVariable _
+New-Item -ItemType Directory -Name "docs\assets\css" ․OutVariable _
 
 # Create config file
 @"

@@ -39,9 +39,9 @@ coverage.xml
 .ipynb_checkpoints/
 
 # --- Static site / build artifacts ---
-site/assets/js/charts.js   # if you decide to generate dynamically or build tool output
-site/assets/js/*.map       # map files if any
-site/assets/js/*.min.js    # if you minify later
+docs/assets/js/charts.js   # if you decide to generate dynamically or build tool output
+docs/assets/js/*.map       # map files if any
+docs/assets/js/*.min.js    # if you minify later
 data/usage_history.json    # optionally ignore if you don’t want it in main branch
 
 # --- System / OS files ---
