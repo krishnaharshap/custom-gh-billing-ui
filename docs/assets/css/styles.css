@@ -1,74 +1,273 @@
-/* styles.css – basic styling for dashboard UI */
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --card: #21262d;
+  --border: #30363d;
+  --border-subtle: #21262d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --accent-blue: #1f6feb;
+  --accent-blue-light: #388bfd;
+  --accent-green: #3fb950;
+  --accent-orange: #f0883e;
+  --accent-purple: #a371f7;
+  --danger: #f85149;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
+/* ── Header ── */
 header {
-  background-color: #003366;
-  color: #fff;
-  padding: 20px 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--card);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.header-info { flex: 1; }
+
+.header-info h1 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.bio {
+  color: var(--text-secondary);
+  font-size: .875rem;
+  margin: .2rem 0;
+}
+
+.header-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: .8rem;
+  color: var(--text-muted);
+  margin-top: .3rem;
+}
+
+.header-meta strong { color: var(--text-secondary); }
+
+.gh-link {
+  color: var(--accent-blue-light);
+  text-decoration: none;
+  font-size: .8rem;
+  border: 1px solid var(--accent-blue);
+  padding: .4rem .9rem;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+
+.gh-link:hover { background: rgba(31, 111, 235, .12); }
+
+/* ── Main layout ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem;
+}
+
+/* ── KPI row ── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem;
   text-align: center;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.8em;
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 0 20px;
+.kpi-label {
+  font-size: .7rem;
+  color: var(--text-secondary);
+  margin-top: .35rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
 }
 
-.chart-container {
-  margin: 40px 0;
+/* ── Section ── */
+.section { margin-bottom: 2.75rem; }
+
+.section-title {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: .25rem;
 }
 
-.chart-container canvas {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
+.section-note {
+  font-size: .78rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
 }
 
-.table-container {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  margin-bottom: 40px;
+/* ── Charts grid ── */
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.chart-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem 1.1rem;
 }
 
-table th, table td {
-  padding: 10px;
-  border: 1px solid #ccc;
+.chart-label {
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: .85rem;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 200px;
+}
+
+/* ── Repo table ── */
+.table-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+
+thead th {
+  background: var(--card);
+  color: var(--text-muted);
+  font-weight: 500;
   text-align: left;
+  padding: .6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
 }
 
-table th {
-  background-color: #eaeaea;
+tbody td {
+  padding: .7rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
 }
 
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--card); }
+
+tbody a { color: var(--accent-blue-light); text-decoration: none; }
+tbody a:hover { text-decoration: underline; }
+
+.fork-badge {
+  font-size: .68rem;
+  color: var(--text-muted);
+  margin-left: .3rem;
+}
+
+.lang-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: .35rem;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.loading-row {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem !important;
+}
+
+/* ── Error state ── */
+.error-msg {
+  color: var(--danger);
+  font-size: .875rem;
+  padding: .75rem 1rem;
+  background: rgba(248, 81, 73, .08);
+  border: 1px solid rgba(248, 81, 73, .25);
+  border-radius: var(--radius);
+  margin-top: .75rem;
+}
+
+.hidden { display: none; }
+
+/* ── Footer ── */
 footer {
   text-align: center;
-  margin: 40px 0;
-  color: #777;
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: .78rem;
 }
 
-@media (max-width: 600px) {
-  .container {
-    padding: 0 10px;
-  }
-  header h1 {
-    font-size: 1.4em;
-  }
+footer a { color: var(--accent-blue-light); text-decoration: none; }
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .charts-row { grid-template-columns: 1fr; }
+  .header-inner { flex-wrap: wrap; }
+  .gh-link { width: 100%; text-align: center; }
+  .chart-wrap { height: 180px; }
+}
+
+@media (max-width: 480px) {
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  thead th:nth-child(4),
+  tbody td:nth-child(4) { display: none; }
 }

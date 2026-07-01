@@ -24,7 +24,7 @@ import yaml
 # Constants
 API_BASE = "https://api.github.com"
 USERNAME = "krishnaharshap"  # change if needed
-OUTPUT_FILE = os.path.join("data", "usage_history.json")
+OUTPUT_FILE = os.path.join("docs", "data", "usage_history.json")
 CONFIG_FILE = "config.yaml"
 
 def load_config():
@@ -93,18 +93,14 @@ def append_record(record):
 def main():
     cfg = load_config()
     timestamp = datetime.datetime.utcnow().isoformat()
-    record = {
-        "timestamp": timestamp,
-        "metrics": {}
-    }
-    # Fetch enabled metrics
     enabled = cfg.get("metrics", [])
+    record = {"timestamp": timestamp}
     if "actions" in enabled:
-        record["metrics"]["actions"] = fetch_actions()
+        record["actions"] = fetch_actions()
     if "packages" in enabled:
-        record["metrics"]["packages"] = fetch_packages()
-    if "shared_storage" in enabled:
-        record["metrics"]["shared_storage"] = fetch_shared_storage()
+        record["packages"] = fetch_packages()
+    if "shared-storage" in enabled:
+        record["shared_storage"] = fetch_shared_storage()
 
     # Additional thresholds/notification logic could be added here based on cfg thresholds.
 
