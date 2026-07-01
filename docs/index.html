@@ -2,42 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GitHub Billing Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>krishnaharshap — Dev Dashboard</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
-    <h1>GitHub Billing Dashboard</h1>
-    <p>User: krishnaharshap</p>
+    <div class="header-inner">
+      <img id="avatar" src="" alt="GitHub avatar" class="avatar">
+      <div class="header-info">
+        <h1 id="display-name">krishnaharshap</h1>
+        <p id="bio" class="bio"></p>
+        <div class="header-meta">
+          <span id="followers-count">— followers</span>
+          <span id="following-count">— following</span>
+        </div>
+      </div>
+      <a class="gh-link" href="https://github.com/krishnaharshap" target="_blank" rel="noopener">
+        View on GitHub ↗
+      </a>
+    </div>
   </header>
-  <div class="container" id="dashboardContainer">
-    <div class="chart-container">
-      <canvas id="chartActions"></canvas>
+
+  <main class="container">
+
+    <div class="kpi-row" id="kpiRow">
+      <div class="kpi-card" id="kpi-repos">
+        <div class="kpi-value">—</div>
+        <div class="kpi-label">Public repos</div>
+      </div>
+      <div class="kpi-card" id="kpi-stars">
+        <div class="kpi-value">—</div>
+        <div class="kpi-label">Total stars</div>
+      </div>
+      <div class="kpi-card" id="kpi-forks">
+        <div class="kpi-value">—</div>
+        <div class="kpi-label">Total forks</div>
+      </div>
+      <div class="kpi-card" id="kpi-langs">
+        <div class="kpi-value">—</div>
+        <div class="kpi-label">Languages</div>
+      </div>
     </div>
-    <div class="chart-container">
-      <canvas id="chartPackages"></canvas>
-    </div>
-    <div class="chart-container">
-      <canvas id="chartShared"></canvas>
-    </div>
-    <div class="table-container">
-      <h2>Usage History</h2>
-      <table id="usageTable">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Actions Minutes</th>
-            <th>Packages Storage (GB)</th>
-            <th>Shared Storage (GB)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- JS will populate table rows -->
-        </tbody>
-      </table>
-    </div>
-  </div>
+
+    <section class="section">
+      <h2 class="section-title">Repository overview</h2>
+      <div class="charts-row">
+        <div class="chart-box">
+          <h3 class="chart-label">Language breakdown</h3>
+          <div class="chart-wrap"><canvas id="chartLangs"></canvas></div>
+        </div>
+        <div class="chart-box">
+          <h3 class="chart-label">Top repos by stars</h3>
+          <div class="chart-wrap"><canvas id="chartTopRepos"></canvas></div>
+        </div>
+      </div>
+      <div class="table-box">
+        <table id="reposTable">
+          <thead>
+            <tr>
+              <th>Repository</th>
+              <th>Language</th>
+              <th>Stars</th>
+              <th>Forks</th>
+              <th>Updated</th>
+            </tr>
+          </thead>
+          <tbody id="reposTableBody">
+            <tr><td colspan="5" class="loading-row">Loading repositories…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">GitHub usage &amp; billing</h2>
+      <p class="section-note">Weekly snapshots via GitHub Actions · last 90 days</p>
+      <div class="charts-row" id="billingCharts">
+        <div class="chart-box">
+          <h3 class="chart-label">Actions minutes used</h3>
+          <div class="chart-wrap"><canvas id="chartActions"></canvas></div>
+        </div>
+        <div class="chart-box">
+          <h3 class="chart-label">Shared storage (GB)</h3>
+          <div class="chart-wrap"><canvas id="chartStorage"></canvas></div>
+        </div>
+      </div>
+      <div id="billing-error" class="error-msg hidden"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      Built by <a href="https://github.com/krishnaharshap" target="_blank" rel="noopener">krishnaharshap</a>
+      &nbsp;·&nbsp; Repo stats: live from GitHub API &nbsp;·&nbsp; Billing: refreshed weekly via GitHub Actions
+    </p>
+  </footer>
 
   <script src="assets/js/dashboard.js"></script>
 </body>
