@@ -63,6 +63,7 @@ setup-local.ps1
 setup-repo.ps1
 
 # --- GitHub Actions / Secrets (already in code, but ignore local overrides) ---
+.env
 .env.local
 .env.*.local
 
