@@ -8,7 +8,7 @@ Description:
       * Actions minutes
       * Packages storage
       * Shared storage
-  - Appends each run’s data as a record in data/usage_history.json
+  - Appends each run’s data as a record in docs/data/usage_history.json
   - Supports configuration via config.yaml (schedule, thresholds, metrics)
   - Securely uses GITHUB_PAT from environment variable (stored in GitHub Secrets)
   - Commits back to repo via GitHub Actions workflow (not done here)
