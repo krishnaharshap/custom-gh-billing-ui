@@ -54,9 +54,11 @@ pip install -r requirements.txt
 Go to repo → Settings → Secrets and variables → Actions → New repository secret:
 
 - Name: `GH_BILLING_PAT`
-- Value: a **fine-grained personal access token** with one account permission:
-  `Billing and payments → Read-only`
-  No repository permissions are needed.
+- Value: a **fine-grained personal access token** with these permissions only:
+  - Repository permissions: `Actions → Read-only` (to read workflow run data)
+  - Repository permissions: `Metadata → Read-only` (implicit, for repo listing)
+  - No billing permissions needed — the old billing API was removed by GitHub (410 Gone).
+  The script now derives CI minutes from workflow run durations and storage from repo sizes.
 
 **3. Enable GitHub Pages**
 
