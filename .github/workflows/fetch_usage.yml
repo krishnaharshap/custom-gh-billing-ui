@@ -26,7 +26,7 @@ jobs:
 
       - name: Fetch usage data
         env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          GITHUB_PAT: ${{ secrets.GH_BILLING_PAT }}
         run: python src/fetch_usage.py
 
       - name: Commit updated data

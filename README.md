@@ -53,8 +53,10 @@ pip install -r requirements.txt
 
 Go to repo → Settings → Secrets and variables → Actions → New repository secret:
 
-- Name: `GITHUB_PAT`
-- Value: a classic PAT with the `user` scope
+- Name: `GH_BILLING_PAT`
+- Value: a **fine-grained personal access token** with one account permission:
+  `Billing and payments → Read-only`
+  No repository permissions are needed.
 
 **3. Enable GitHub Pages**
 
