@@ -381,5 +381,16 @@
     "shared_storage": {
       "total_gigabytes_used": 0.2118
     }
+  },
+  {
+    "timestamp": "2026-09-27T09:06:02.256841",
+    "actions": {
+      "total_minutes_used": 24,
+      "total_paid_minutes_used": 0,
+      "included_minutes": 2000
+    },
+    "shared_storage": {
+      "total_gigabytes_used": 0.2118
+    }
   }
 ]
